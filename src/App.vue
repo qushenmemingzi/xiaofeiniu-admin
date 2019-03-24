@@ -7,9 +7,9 @@
 <script>
 export default {
   mounted(){
-    //当根组件挂载完成后需要异步请求全局配置数据
+    //当根组件挂载完成后需要异步请求全局配置数据，因为其他所有的组件都是挂载在根组件上的
     var url = this.$store.state.globalSettings.apiUrl+'/admin/settings';
-    
+
     this.$axios.get(url).then((res)=>{
       this.$store.commit('setGlobalSettings',res.data);  //将全局配置存储到Vuex存储仓库
     }).catch((err)=>{

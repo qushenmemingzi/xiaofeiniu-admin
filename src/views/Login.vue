@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <el-card class="xfn-login-card">
+      <!-- card组件有个插槽 <slot name="header"></slot> -->
       <div slot="header">管理员登录</div>
       <div>
         <el-form label-width="100px">
@@ -30,7 +31,7 @@ export default {
     return {
       formData: { //表单中用户输入的两个数据
         aname: 'admin',
-        apwd: '123456'
+        apwd: '666666'
       }
     }
   },

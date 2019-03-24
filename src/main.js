@@ -6,7 +6,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'  //全局对象
 /*插件和全局对象设置 */
-Vue.use(ElementUI)  //注册插件
+Vue.use(ElementUI)  //注册插件,将多个方法添加到了Vue的原型对象上了
 Vue.prototype.$axios = axios  //把axios设置为所有Vue组件实例的成员属性，以后可以使用this.$axios使用异步请求功能
 Vue.config.productionTip = false
 
@@ -51,9 +51,12 @@ Vue.filter('tableStatus', (val)=>{
   else return '其它';
 })
 
+
 //根组件这里面所有的属性都可以用$属性名访问
-new Vue({
+var vm=new Vue({
   router,//根组件想挂载哪些子组件，看这里
   store,  //指定当前项目唯一的Vuex存储仓库对象，其中保存着可供所有组件共享的数据
   render: h => h(App) //根据App组件创建<App></App>元素，挂载到#app内部
 }).$mount('#app')    
+
+console.log(vm.__proto__)
