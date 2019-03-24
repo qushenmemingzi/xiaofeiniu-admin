@@ -44,10 +44,16 @@ Vue.filter('currency', (val)=>{
   //把int转换为￥xx.yy
   return  '￥'+val.toFixed(2)
 })
+Vue.filter('tableStatus', (val)=>{
+  if(val==1) return '空闲';
+  else if(val==2) return '预定';
+  else if(val==3) return '占用';
+  else return '其它';
+})
 
-
+//根组件这里面所有的属性都可以用$属性名访问
 new Vue({
   router,//根组件想挂载哪些子组件，看这里
-  store,
-  render: h => h(App)
-}).$mount('#app')    //根组件App挂载到#app
+  store,  //指定当前项目唯一的Vuex存储仓库对象，其中保存着可供所有组件共享的数据
+  render: h => h(App) //根据App组件创建<App></App>元素，挂载到#app内部
+}).$mount('#app')    
