@@ -29,7 +29,7 @@
 export default {
   data(){   //普通组件的模型数据是函数返回值
     return {
-      formData: { //表单中用户输入的两个数据
+      formData: { //表单中用户输入的两个数据,先写死，方便测试
         aname: 'admin',
         apwd: '666666'
       }
